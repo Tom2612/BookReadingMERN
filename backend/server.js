@@ -18,6 +18,12 @@ app.use((req, res, next) => {
 // routes
 app.use('/api/books', bookRoutes)
 
-app.listen(process.env.PORT, () => {
-    console.log('listening on port ' + process.env.PORT);
-})
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log('DB connected and listening on port ' + process.env.PORT);
+        })
+    })
+    .catch(e => {
+        console.log(e);
+    })
