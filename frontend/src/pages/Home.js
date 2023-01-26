@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import BookDetails from '../components/BookDetails';
+import BookForm from '../components/BookForm';
 
 export default function Home() {
 
@@ -24,6 +25,7 @@ export default function Home() {
                 <BookDetails key={book._id} book={book} />
             ))}
         </div>
+        <BookForm />
     </div>
   )
 }
