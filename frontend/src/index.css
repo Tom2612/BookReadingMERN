@@ -4,11 +4,18 @@
   box-sizing: border-box;
 }
 :root {
-  --green-primary: #1aac83;
+  --green: #1aac83;
   --green-secondary: #a3cfbb;
   --red-primary: #e7195a;
   --red-secondary: #f1aeb5;
-  --primary: #0d6efd;
+  --blue: #0d6efd;
+  --purple: #6610f2;
+  --pink: #d63384;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --teal: #20c997;
+  --cyan: #0dcaf0;
+  --grey: #adb5bd;
 }
 body {
   background: #f1f1f1;
@@ -16,7 +23,7 @@ body {
   font-size: 16px;
 }
 header {
-  background: var(--primary);
+  background: var(--blue);
 }
 header .container {
   max-width: 1400px;
@@ -53,7 +60,7 @@ header h1 {
 .book-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: var(--blue);
 }
 .book-details p {
   margin: 0;
@@ -87,7 +94,7 @@ header h1 {
   box-sizing: border-box;
  }
  form button {
-  background: var(--primary);
+  background: var(--blue);
   border: 0;
   color: #fff;
   padding: 10px;
