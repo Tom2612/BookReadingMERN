@@ -16,7 +16,7 @@ export default function Home() {
         }
 
         fetchBooks();
-    }, [])
+    }, [dispatch])
 
   return (
     <div className='home'>
