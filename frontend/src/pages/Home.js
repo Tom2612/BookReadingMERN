@@ -4,7 +4,7 @@ import BookForm from '../components/BookForm';
 import { useBookContext } from '../hooks/useBookContext';
 
 export default function Home() {
-    const { books, dispatch } = useBookContext()
+    const { books, dispatch } = useBookContext();
 
     useEffect(() => {
         const fetchBooks = async() => {
