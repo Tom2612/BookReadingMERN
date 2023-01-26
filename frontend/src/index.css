@@ -8,6 +8,7 @@
   --green-secondary: #a3cfbb;
   --red-primary: #e7195a;
   --red-secondary: #f1aeb5;
+  --primary: #0d6efd;
 }
 body {
   background: #f1f1f1;
@@ -15,7 +16,7 @@ body {
   font-size: 16px;
 }
 header {
-  background: #fff;
+  background: var(--primary);
 }
 header .container {
   max-width: 1400px;
@@ -27,7 +28,7 @@ header .container {
 }
 header a,
 header h1 {
-  color: #333;
+  color: #fff;
   text-decoration: none;
   font-weight: 400;
 }
@@ -52,7 +53,7 @@ header h1 {
 .book-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--green-primary);
+  color: var(--primary);
 }
 .book-details p {
   margin: 0;
@@ -86,7 +87,7 @@ header h1 {
   box-sizing: border-box;
  }
  form button {
-  background: var(--green-primary);
+  background: var(--primary);
   border: 0;
   color: #fff;
   padding: 10px;
