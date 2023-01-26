@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { useBookContext } from '../hooks/useBookContext';
 
 export default function BookForm() {
+    const { dispatch } = useBookContext();
     const [title, setTitle] = useState('');
     const [pages, setPages] = useState('');
     const [rating, setRating] = useState(5);
@@ -28,7 +30,7 @@ export default function BookForm() {
             setPages('');
             setRating('');
             setError(null);
-            console.log('new book added', json);
+            dispatch({type: 'CREATE_BOOK', payload: json});
         }
     }
 

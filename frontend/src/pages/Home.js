@@ -1,17 +1,17 @@
-import React, { useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import BookDetails from '../components/BookDetails';
 import BookForm from '../components/BookForm';
+import { useBookContext } from '../hooks/useBookContext';
 
 export default function Home() {
-
-    const [books, setBooks] = useState(null);
+    const { books, dispatch } = useBookContext()
 
     useEffect(() => {
         const fetchBooks = async() => {
             const response = await fetch('http://localhost:4000/api/books');
             const json = await response.json();
             if (response.ok) {
-                setBooks(json);
+                dispatch({type: "SET_BOOKS", payload: json});
             }
         }
 
