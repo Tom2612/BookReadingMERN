@@ -6,6 +6,12 @@ export default function Navbar() {
     <header>
         <div className='container'>
             <Link to='/'><h1>Book Tracker</h1></Link>
+            <nav>
+              <div>
+                <Link to='/login'>Login</Link>
+                <Link to='/signup'>Signup</Link>
+              </div>
+            </nav>
         </div>
     </header>
   )
