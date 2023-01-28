@@ -146,4 +146,5 @@ nav button {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   cursor: pointer;
   font-size: 1em;
+  margin-left: 10px;
 }
