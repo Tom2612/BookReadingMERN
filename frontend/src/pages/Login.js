@@ -32,7 +32,7 @@ export default function Login() {
 
                 <button>Login</button>
             </form>
-            <div class='help-text'>Need an account? <Link to='/signup'>Signup here</Link></div>
+            <div className='help-text'>Need an account? <Link to='/signup'>Signup here</Link></div>
         </>
     )
 }

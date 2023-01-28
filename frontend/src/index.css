@@ -23,7 +23,8 @@ body {
   font-size: 16px;
 }
 header {
-  background: var(--blue);
+  /* background: var(--blue); */
+  background: #fff;
 }
 header .container {
   max-width: 1400px;
@@ -35,9 +36,10 @@ header .container {
 }
 header a,
 header h1 {
-  color: #fff;
+  /* color: #fff; */
+  color: var(--blue);
   text-decoration: none;
-  font-weight: 400;
+  /* font-weight: 400; */
 }
 .pages {
   max-width: 1400px;
@@ -134,4 +136,14 @@ form.signup, form.login {
 .help-text {
   max-width: 400px;
   margin: 0 auto;
+}
+nav button {
+  background: #fff;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  font-size: 1em;
 }
