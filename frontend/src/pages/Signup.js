@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
     const [email, setEmail] = useState('');
@@ -11,24 +12,27 @@ export default function Signup() {
     }
 
     return (
-        <form className='signup' onSubmit={handleSubmit}>
-            <h3>Sign up</h3>
+        <>
+            <form className='signup' onSubmit={handleSubmit}>
+                <h3>Sign up</h3>
 
-            <label>Email</label>
-            <input 
-                type='email'
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-            />
+                <label>Email</label>
+                <input 
+                    type='email'
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                />
 
-            <label>Password</label>
-            <input 
-                type='password'
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-            />
+                <label>Password</label>
+                <input 
+                    type='password'
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                />
 
-            <button>Sign up</button>
-        </form>
+                <button>Sign up</button>
+            </form>
+            <div class='help-text'>Already have an account? <Link to='/login'>Login here</Link></div>
+        </>
     )
 }

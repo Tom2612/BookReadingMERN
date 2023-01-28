@@ -120,7 +120,7 @@ nav {
   align-items: center;
 }
 nav a {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 /* forms  */
 form.signup, form.login {
@@ -129,4 +129,8 @@ form.signup, form.login {
   padding: 20px;
   background: #fff;
   border-radius: 4px;
+}
+.help-text {
+  max-width: 400px;
+  margin: 0 auto;
 }
