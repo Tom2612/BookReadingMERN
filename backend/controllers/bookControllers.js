@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Book = require('../models/bookModel');
 
 const getBooks = async (req, res) => {
-    const books = await Book.find({}).sort({createdAt: -1});
+    // Only get by user_id
+    const user_id = req.user._id;
+
+    const books = await Book.find({ user_id }).sort({createdAt: -1});
 
     res.status(200).json(books);
 }
@@ -42,7 +45,8 @@ const createBook = async (req, res) => {
     }
 
     try {
-        const book = await Book.create({ title, rating, pages });
+        const user_id = req.user._id;
+        const book = await Book.create({ title, rating, pages, user_id });
         res.status(200).json(book);
     } catch(e) {
         res.status(404).json({error: e.message});

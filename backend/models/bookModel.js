@@ -17,6 +17,10 @@ const bookSchema = new Schema({
         type: Number,
         min: 0,
         required: true
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 }, { timestamps: true })
 
