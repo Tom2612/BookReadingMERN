@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useBookContext } from '../hooks/useBookContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function BookForm() {
     const { dispatch } = useBookContext();
+    const { user } = useAuthContext();
+    
     const [title, setTitle] = useState('');
     const [pages, setPages] = useState('');
     const [rating, setRating] = useState(5);
@@ -11,6 +14,10 @@ export default function BookForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!user) {
+            setError('You must be logged in to do that.')
+            return
+        }
 
         const book = { title, pages, rating };
 
@@ -18,7 +25,8 @@ export default function BookForm() {
             method: 'POST',
             body: JSON.stringify(book),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json();
