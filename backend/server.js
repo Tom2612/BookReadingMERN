@@ -11,7 +11,9 @@ const userRoutes = require('./routes/user');
 
 const app = express();
 
-app.use(helmet());
+app.use(helmet({
+    crossOriginEmbedderPolicy: false
+}));
 app.use(compression());
 
 let limiter = RateLimit({
