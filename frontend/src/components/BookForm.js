@@ -21,7 +21,7 @@ export default function BookForm() {
 
         const book = { title, pages, rating };
 
-        const response = await fetch(`${process.env.REACT_APP_FETCH_URL}api/books/`, {
+        const response = await fetch(`http://localhost:4000/api/books/`, {
             method: 'POST',
             body: JSON.stringify(book),
             headers: {

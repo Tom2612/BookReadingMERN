@@ -11,7 +11,7 @@ export default function BookDetails({ book }) {
     if (!user) {
       return
     }
-    const response = await fetch(`${process.env.REACT_APP_FETCH_URL}api/books/` + book._id, {
+    const response = await fetch(`http://localhost:4000/api/books/` + book._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
