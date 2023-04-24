@@ -38,10 +38,12 @@ app.use('/api/user', userRoutes);
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT, () => {
-            debug('DB connected and listening on port ' + process.env.PORT);
-            debug('listening');
+            console.log('DB Connected ', + process.env.PORT)
+            // debug('DB connected and listening on port ' + process.env.PORT);
+            // debug('listening');
         })
     })
     .catch(e => {
-        debug(e);
+        console.log('error: ', e)
+        // debug(e);
     })

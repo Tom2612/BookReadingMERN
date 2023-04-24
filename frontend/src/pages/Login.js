@@ -35,7 +35,7 @@ export default function Login() {
                             value={password}
                         />
                         
-                        <Button disabled={isLoading}>Login</Button>
+                        <Button type='submit' disabled={isLoading}>Login</Button>
                     </Stack>
                     {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
                 </form>
