@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Paper, TextInput, PasswordInput, Button, Title, Stack, Container, Alert } from '@mantine/core';
+import { IconAlertCircle } from '@tabler/icons-react';
 import { useSignup } from '../hooks/useSignup';
 
 export default function Signup() {
@@ -14,28 +16,30 @@ export default function Signup() {
     }
 
     return (
-        <>
-            <form className='signup' onSubmit={handleSubmit}>
-                <h3>Sign up</h3>
+        <Container maw={420}>
+            <Paper shadow='xs' radius='md' maw={420} p='lg'>
+                <form className='signup' onSubmit={handleSubmit}>
+                    <Title order={3} mb='md'>Sign up</Title>
 
-                <label>Email</label>
-                <input 
-                    type='email'
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                />
+                    <Stack>
+                        <TextInput 
+                            label='Email'
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
+                        />
 
-                <label>Password</label>
-                <input 
-                    type='password'
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                />
+                        <PasswordInput 
+                            label='Password'
+                            onChange={(e) => setPassword(e.target.value)}
+                            value={password}
+                        />
 
-                <button disabled={isLoading}>Sign up</button>
-                {error && <div className='error'>{error}</div>}
-            </form>
-            <div className='help-text'>Already have an account? <Link to='/login'>Login here</Link></div>
-        </>
+                        <Button disabled={isLoading}>Sign up</Button>
+                    </Stack>
+                    {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
+                </form>
+                <div className='help-text'>Already have an account? <Link to='/login'>Login here</Link></div>
+            </Paper>
+        </Container>
     )
 }

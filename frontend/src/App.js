@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { MantineProvider } from '@mantine/core';
 import { useAuthContext } from './hooks/useAuthContext';
 
 import Home from './pages/Home';
@@ -11,7 +10,6 @@ function App() {
   const { user } = useAuthContext();
 
   return (
-    // <MantineProvider>
       <div className="App">
         <BrowserRouter>
         <Navbar />
@@ -24,7 +22,6 @@ function App() {
         </div>
         </BrowserRouter>
       </div>
-    // </MantineProvider>
   );
 }
 
