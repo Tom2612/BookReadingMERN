@@ -1,4 +1,6 @@
 import React from 'react';
+import { Stack, Group, Paper, Title, Text } from '@mantine/core';
+import { IconTrash } from '@tabler/icons-react';
 import { useBookContext } from '../hooks/useBookContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
@@ -25,12 +27,16 @@ export default function BookDetails({ book }) {
   }
 
   return (
-    <div className='book-details'>
-        <h4>{book.title}</h4>
-        <p><strong>Pages: </strong>{book.pages}</p>
-        <p><strong>Rating: </strong>{book.rating}</p>
-        <p>{formatDistanceToNow(new Date(book.createdAt), {addSuffix: true})}</p>
-        <span className='material-symbols-outlined' onClick={handleClick}>delete</span>
-    </div>
+      <Paper shadow='sm' p='md' radius='md'>
+        <Group position='apart'>
+          <Stack spacing='xs'>
+            <Title color='blue' order={3}>{book.title}</Title>
+            <Text><Text span fw={700} inherit>Pages:</Text> {book.pages}</Text>
+            <Text><Text span fw={700} inherit>Rating:</Text> {book.rating}</Text>
+            <Text><Text span fw={700} inherit>Added:</Text> {formatDistanceToNow(new Date(book.createdAt), {addSuffix: true})}</Text>
+          </Stack>
+          <IconTrash onClick={handleClick} />
+        </Group>
+      </Paper>
   )
 }

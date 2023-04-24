@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import { Grid } from '@mantine/core';
+import { Grid, Stack } from '@mantine/core';
 import BookDetails from '../components/BookDetails';
 import BookForm from '../components/BookForm';
 import { useBookContext } from '../hooks/useBookContext';
@@ -31,11 +31,11 @@ export default function Home() {
   return (
     <Grid gutter='lg' justify='space-between'>
         <Grid.Col xs={12} sm={8}>
-            <div className='books'>
+            <Stack className='books'>
                 {books && books.map(book => (
                     <BookDetails key={book._id} book={book} />
                 ))}
-            </div>
+            </Stack>
         </Grid.Col>
         <Grid.Col xs={12} sm={4}>
             <BookForm />
