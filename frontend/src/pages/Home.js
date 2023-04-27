@@ -29,7 +29,7 @@ export default function Home() {
     }, [dispatch, user])
 
   return (
-    <Grid gutter='lg' justify='space-between'>
+    <Grid gutter='xl' justify='space-between'>
         <Grid.Col xs={12} sm={8}>
             <Stack className='books'>
                 {books && books.map(book => (

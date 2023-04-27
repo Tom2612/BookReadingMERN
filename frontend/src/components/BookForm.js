@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import { Title, TextInput, NumberInput, Slider, Button, Alert } from '@mantine/core';
 import { useBookContext } from '../hooks/useBookContext';
 import { useAuthContext } from '../hooks/useAuthContext';
+import { IconAlertCircle } from '@tabler/icons-react';
 
 export default function BookForm() {
     const { dispatch } = useBookContext();
     const { user } = useAuthContext();
-    
+
     const [title, setTitle] = useState('');
-    const [pages, setPages] = useState('');
+    const [pages, setPages] = useState(0);
     const [rating, setRating] = useState(5);
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
@@ -47,37 +49,47 @@ export default function BookForm() {
 
   return (
     <form className='create' onSubmit={handleSubmit}>
-        <h3>Add a new book</h3>
+        <Title order={3} mb='xl'>Add a new book</Title>
 
-        <label>Book Title:</label>
-        <input 
-            type="text" 
+        <TextInput 
+            label='Book Title:'
             name="title" 
             onChange={(e) => setTitle(e.target.value)} 
             value={title}
             className={emptyFields.includes('title') ? 'error' : ''}
+            withAsterisk
+            mb='xl'
         />
-        <label>Number of Pages:</label>
-        <input 
-            type="number" 
+
+        <NumberInput 
+            label="Number of Pages:" 
             name="pages" 
-            onChange={(e) => setPages(e.target.value)} 
+            onChange={setPages} 
             value={pages}
             className={emptyFields.includes('pages') ? 'error' : ''}
+            withAsterisk
+            mb='xl'
         />
-        <label>Your Rating: {rating}</label>
-        <input 
-            type="range" 
-            min="0" 
-            max="10" 
-            name="rating" 
-            onChange={(e) => setRating(e.target.value)} 
+        <Title style={{fontSize: '0.875rem', fontWeight:'500', color:'#212529'}}>Your Rating: {rating}</Title>
+        <Slider 
+            marks={[
+                { value: 0, label: '0'},
+                { value: 5, label: '5'},
+                { value: 10, label: '10'},
+            ]}
+            label={rating}
+            defaultValue={5}
+            min={0}
+            max={10}
+            step={1}
+            mb='xl'
+            onChange={setRating}
             value={rating} 
             className={emptyFields.includes('rating') ? 'error' : ''}
         />
 
-        <button>Add book</button>
-        {error && <div className='error'>{error}</div>}
+        <Button mt='lg'>Add book</Button>
+        {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
     </form>
   )
 }
