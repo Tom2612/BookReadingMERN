@@ -10,7 +10,7 @@ export default function Navbar() {
   const handleClick = () => {
     logout();
   }
-
+ 
   return (
     <header>
         <div className='container'>
