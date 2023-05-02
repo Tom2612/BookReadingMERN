@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Header, Group, Button, Anchor, Title, Text, Flex } from '@mantine/core';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 
@@ -12,24 +13,24 @@ export default function Navbar() {
   }
  
   return (
-    <header>
-        <div className='container'>
-            <Link to='/'><h1>Book Tracker</h1></Link>
+    <Header>
+        <Group position='apart'>
+            <Anchor underline={false} to='/'><Title order={1} mx='xl'>Book Tracker</Title></Anchor>
             <nav>
               {user && (
-                <div>
-                  <span>{user.email}</span>
-                  <button onClick={handleClick}>Logout</button>
-                </div>
+                <Flex justify='center' align='center' direction='row' gap='xl' mr='xl'>
+                  <Text inline={false}>{user.email}</Text>
+                  <Button onClick={handleClick} variant='outline'>Logout</Button>
+                </Flex>
               )}
               {!user && (
-                <div>
-                  <Link to='/login'>Login</Link>
-                  <Link to='/signup'>Signup</Link>
-                </div>
+                <Group>
+                  <Button><Link to='/login' style={{color: 'inherit', textDecoration: 'none'}}>Login</Link></Button>
+                  <Button variant='outline'><Link to='/signup' style={{color: 'inherit', textDecoration: 'none'}}>Signup</Link></Button>
+                </Group>
               )}
             </nav>
-        </div>
-    </header>
+        </Group>
+    </Header>
   )
 }
