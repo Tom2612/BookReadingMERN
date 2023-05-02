@@ -32,7 +32,7 @@ export default function BookDetails({ book }) {
       <Paper shadow='sm' p='md' radius='md'>
         <Group position='apart' spacing='xl'>
           <Stack spacing='xs'>
-            <Title color='blue' order={3}>{book.title}</Title>
+            <Title color='orange' order={3}>{book.title}</Title>
             <Text><Text span fw={700} inherit>Pages:</Text> {book.pages}</Text>
             <Text><Text span fw={700} inherit>Rating:</Text> {book.rating}</Text>
             <Text><Text span fw={700} inherit>Added:</Text> {formatDistanceToNow(new Date(book.createdAt), {addSuffix: true})}</Text>

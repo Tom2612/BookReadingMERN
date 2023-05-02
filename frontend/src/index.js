@@ -14,8 +14,9 @@ root.render(
       globalStyles: (theme) => ({
         body: {
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
-        }
-      })
+        }        
+      }),
+      primaryColor: 'orange'
     }} withGlobalStyles withNormalizeCSS>
       <AuthContextProvider>
         <BookContextProvider>
