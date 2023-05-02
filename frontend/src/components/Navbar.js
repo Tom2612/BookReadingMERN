@@ -13,7 +13,7 @@ export default function Navbar() {
   }
  
   return (
-    <Header>
+    <Header mb='xl'>
         <Group position='apart'>
             <Anchor underline={false} to='/'><Title order={1} mx='xl'>Book Tracker</Title></Anchor>
             <nav>
@@ -24,7 +24,7 @@ export default function Navbar() {
                 </Flex>
               )}
               {!user && (
-                <Group>
+                <Group mr='xl'>
                   <Button><Link to='/login' style={{color: 'inherit', textDecoration: 'none'}}>Login</Link></Button>
                   <Button variant='outline'><Link to='/signup' style={{color: 'inherit', textDecoration: 'none'}}>Signup</Link></Button>
                 </Group>
