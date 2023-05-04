@@ -36,7 +36,7 @@ export default function Signup() {
 
                         <Button disabled={isLoading}>Sign up</Button>
                     </Stack>
-                    {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
+                    {error && <Alert mt='xl' mb='xs' icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
                 </form>
                 <div className='help-text'>Already have an account? <Link to='/login'>Login here</Link></div>
             </Paper>

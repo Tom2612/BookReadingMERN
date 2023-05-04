@@ -37,7 +37,7 @@ export default function Login() {
                         
                         <Button type='submit' disabled={isLoading}>Login</Button>
                     </Stack>
-                    {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
+                    {error && <Alert mt='xl' mb='xs' icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
                 </form>
                 <div className='help-text'>Need an account? <Link to='/signup'>Signup here</Link></div>
             </Paper>
