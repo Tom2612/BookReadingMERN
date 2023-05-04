@@ -29,7 +29,7 @@ export default function BookDetails({ book }) {
   }
 
   return (
-      <Paper shadow='sm' p='md' radius='md'>
+      <Paper shadow='sm' p='md' radius='md' ml='xl'>
         <Group position='apart' spacing='xl'>
           <Stack spacing='xs'>
             <Title color='orange' order={3}>{book.title}</Title>
