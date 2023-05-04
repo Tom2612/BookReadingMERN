@@ -29,17 +29,19 @@ export default function Home() {
     }, [dispatch, user])
 
   return (
-    <Grid gutter='xl' justify='space-between'>
-        <Grid.Col xs={12} sm={8}>
+    <Grid gutter='xl' justify='space-between' ml='xl' mr='xl'>
+        <Grid.Col xs={12} sm={4} orderSm={2}>
+            <BookForm />
+        </Grid.Col>
+
+        <Grid.Col xs={12} sm={8} orderSm={1}>
             <Stack className='books'>
                 {books && books.map(book => (
                     <BookDetails key={book._id} book={book} />
                 ))}
             </Stack>
         </Grid.Col>
-        <Grid.Col xs={12} sm={4}>
-            <BookForm />
-       </Grid.Col>
+        
     </Grid>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Title, TextInput, NumberInput, Slider, Button, Alert, useMantineTheme } from '@mantine/core';
+import { Title, TextInput, NumberInput, Slider, Button, Alert } from '@mantine/core';
 import { useBookContext } from '../hooks/useBookContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { IconAlertCircle } from '@tabler/icons-react';
@@ -7,8 +7,6 @@ import { IconAlertCircle } from '@tabler/icons-react';
 export default function BookForm() {
     const { dispatch } = useBookContext();
     const { user } = useAuthContext();
-    const theme = useMantineTheme();
-    console.log(theme)
 
     const [title, setTitle] = useState('');
     const [pages, setPages] = useState(0);
@@ -50,7 +48,7 @@ export default function BookForm() {
     }
 
   return (
-    <form className='create' onSubmit={handleSubmit} style={{ marginRight: theme.spacing.xl, maxWidth: '26em' }}>
+    <form className='create' onSubmit={handleSubmit} style={{ maxWidth: '26em' }}>
         <Title order={3} mb='xl'>Add a new book</Title>
 
         <TextInput 
