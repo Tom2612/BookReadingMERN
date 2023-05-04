@@ -33,6 +33,10 @@ export default function BookForm() {
         })
         const json = await response.json();
 
+        // if(!response) {
+        //     setError('Woops, something has gone wrong!');
+        // }
+
         if (!response.ok) {
             setError(json.error);
             setEmptyFields(json.emptyFields);
@@ -40,7 +44,7 @@ export default function BookForm() {
         if (response.ok) {
             setTitle('');
             setPages('');
-            setRating('');
+            setRating(5);
             setError(null);
             setEmptyFields([]);
             dispatch({type: 'CREATE_BOOK', payload: json});
@@ -56,7 +60,7 @@ export default function BookForm() {
             name="title" 
             onChange={(e) => setTitle(e.target.value)} 
             value={title}
-            className={emptyFields.includes('title') ? 'error' : ''}
+            error={emptyFields.includes('title') ? 'Invalid title' : null}
             withAsterisk
             mb='xl'
         />
@@ -66,7 +70,7 @@ export default function BookForm() {
             name="pages" 
             onChange={setPages} 
             value={pages}
-            className={emptyFields.includes('pages') ? 'error' : ''}
+            error={emptyFields.includes('pages') ? 'Invalid pages' : null}
             withAsterisk
             mb='xl'
         />
@@ -84,12 +88,11 @@ export default function BookForm() {
             step={1}
             mb='xl'
             onChange={setRating}
-            value={rating} 
-            className={emptyFields.includes('rating') ? 'error' : ''}
+            value={rating}
         />
 
-        <Button mt='lg'>Add book</Button>
-        {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
+        <Button mt='lg' type='submit' w='100%'>Add book</Button>
+        {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red' mt='xl'>{error}</Alert>}
     </form>
   )
 }
