@@ -13,7 +13,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchBooks = async() => {
-            const response = await fetch(`http://localhost:4000/api/books/`, {
+            const response = await fetch(`${process.env.REACT_APP_FETCH_URL}api/books/`, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
