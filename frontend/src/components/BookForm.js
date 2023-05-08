@@ -52,7 +52,7 @@ export default function BookForm() {
     }
 
   return (
-    <form className='create' onSubmit={handleSubmit} style={{ maxWidth: '26em' }}>
+    <form className='create' onSubmit={handleSubmit} style={{ maxWidth: '26em', margin: '0 auto' }}>
         <Title order={3} mb='xl'>Add a new book</Title>
 
         <TextInput 
