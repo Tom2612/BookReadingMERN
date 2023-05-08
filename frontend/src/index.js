@@ -16,7 +16,7 @@ root.render(
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[1],
         }        
       }),
-      primaryColor: 'orange'
+      primaryColor: 'green'
     }} withGlobalStyles withNormalizeCSS>
       <AuthContextProvider>
         <BookContextProvider>

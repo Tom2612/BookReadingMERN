@@ -1,11 +1,13 @@
 import React, { useEffect} from 'react';
-import { Grid, Stack } from '@mantine/core';
+import { Grid, Stack, Accordion } from '@mantine/core';
+import { useViewportSize } from '@mantine/hooks';
 import BookDetails from '../components/BookDetails';
 import BookForm from '../components/BookForm';
 import { useBookContext } from '../hooks/useBookContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Home() {
+    const { width } = useViewportSize();
     const { books, dispatch } = useBookContext();
     const { user } = useAuthContext();
 
