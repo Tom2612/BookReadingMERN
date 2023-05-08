@@ -7,7 +7,6 @@ import { useLogin } from '../hooks/useLogin';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const [error, setError] = useState('Login failed')
     const { login, isLoading, error } = useLogin();
 
     const handleSubmit = async (e) => {
