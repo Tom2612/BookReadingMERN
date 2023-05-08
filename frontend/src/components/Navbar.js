@@ -13,7 +13,7 @@ export default function Navbar() {
   }
  
   return (
-    <Header mb='xl'>
+    <Header mb='xl' p='sm'>
         <Group position='apart'>
             <Anchor underline={false} to='/'><Title order={1} mx='xl'>Book Tracker</Title></Anchor>
             <nav>

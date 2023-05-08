@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, TextInput, PasswordInput, Button, Title, Stack, Container, Alert, Loader } from '@mantine/core';
+import { Paper, TextInput, PasswordInput, Button, Title, Stack, Container, Alert } from '@mantine/core';
 import { IconAlertCircle } from '@tabler/icons-react';
 import { useSignup } from '../hooks/useSignup';
 

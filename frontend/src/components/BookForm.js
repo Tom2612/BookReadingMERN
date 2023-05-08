@@ -13,42 +13,48 @@ export default function BookForm() {
     const [rating, setRating] = useState(5);
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+
         if (!user) {
             setError('You must be logged in to do that.')
             return
         }
 
         const book = { title, pages, rating };
+        try {
+            const response = await fetch(`http://localhost:4000/api/books/`, {
+                method: 'POST',
+                body: JSON.stringify(book),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                }
+            })
+            const json = await response.json();
 
-        const response = await fetch(`http://localhost:4000/api/books/`, {
-            method: 'POST',
-            body: JSON.stringify(book),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${user.token}`
+            if (!response.ok) {
+                setLoading(false);
+                setError(json.error);
+                setEmptyFields(json.emptyFields);
             }
-        })
-        const json = await response.json();
-
-        // if(!response) {
-        //     setError('Woops, something has gone wrong!');
-        // }
-
-        if (!response.ok) {
-            setError(json.error);
-            setEmptyFields(json.emptyFields);
+            if (response.ok) {
+                setLoading(false);
+                setTitle('');
+                setPages('');
+                setRating(5);
+                setError(null);
+                setEmptyFields([]);
+                dispatch({type: 'CREATE_BOOK', payload: json});
+            }
+        } catch(e) {
+            setError('Something went wrong, please try again or try later.');
+            setLoading(false);
         }
-        if (response.ok) {
-            setTitle('');
-            setPages('');
-            setRating(5);
-            setError(null);
-            setEmptyFields([]);
-            dispatch({type: 'CREATE_BOOK', payload: json});
-        }
+        
     }
 
   return (
@@ -91,7 +97,7 @@ export default function BookForm() {
             value={rating}
         />
 
-        <Button mt='lg' type='submit' w='100%'>Add book</Button>
+        <Button loading={loading} mt='lg' type='submit' w='100%'>Add book</Button>
         {error && <Alert icon={<IconAlertCircle />} className='error' title='Sorry!' color='red' mt='xl'>{error}</Alert>}
     </form>
   )
