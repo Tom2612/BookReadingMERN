@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Paper, TextInput, PasswordInput, Button, Title, Stack, Container, Alert } from '@mantine/core';
+import { Paper, TextInput, PasswordInput, Button, Title, Stack, Container, Alert, Loader } from '@mantine/core';
 import { IconAlertCircle } from '@tabler/icons-react';
 import { useSignup } from '../hooks/useSignup';
 
@@ -34,7 +34,7 @@ export default function Signup() {
                             value={password}
                         />
 
-                        <Button disabled={isLoading}>Sign up</Button>
+                        <Button disabled={isLoading} type='submit' loading={isLoading}>Sign up</Button>
                     </Stack>
                     {error && <Alert mt='xl' mb='xs' icon={<IconAlertCircle />} className='error' title='Sorry!' color='red'>{error}</Alert>}
                 </form>
