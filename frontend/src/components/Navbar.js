@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <Header mb='xl' p='sm'>
         <Group position='apart'>
-            <Anchor underline={false} to='/'><Title order={1} mx='xl'>Book Tracker</Title></Anchor>
+            <Anchor underline={false} href='/'><Title order={1} mx='xl'>Book Tracker</Title></Anchor>
             <nav>
               {user && (
                 <Flex justify='center' align='center' direction='row' gap='xl' mr='xl'>
@@ -25,6 +25,7 @@ export default function Navbar() {
               )}
               {!user && (
                 <Group mr='xl'>
+                  <Anchor href='/test-home'>Test it out!</Anchor>
                   <Button><Link to='/login' style={{color: 'inherit', textDecoration: 'none'}}>Login</Link></Button>
                   <Button variant='outline'><Link to='/signup' style={{color: 'inherit', textDecoration: 'none'}}>Signup</Link></Button>
                 </Group>

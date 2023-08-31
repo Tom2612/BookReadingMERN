@@ -5,6 +5,7 @@ import { MantineProvider } from '@mantine/core';
 import App from './App';
 import { BookContextProvider } from './contexts/BookContext';
 import { AuthContextProvider } from './contexts/AuthContext';
+import { TestBookContextProvider } from './contexts/TestBookContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,7 +21,9 @@ root.render(
     }} withGlobalStyles withNormalizeCSS>
       <AuthContextProvider>
         <BookContextProvider>
-          <App />
+          <TestBookContextProvider>
+            <App />
+          </TestBookContextProvider>
         </BookContextProvider>
       </AuthContextProvider>
     </MantineProvider>
